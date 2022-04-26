@@ -9,6 +9,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import CommentArea from "./components/CommentArea";
 import { Component } from "react";
 
+//some test comment
+
 class App extends Component {
 
   state = {
