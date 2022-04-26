@@ -9,19 +9,27 @@ class CommentArea extends Component {
     state = {
         comments: [], // comments will go here
         isLoading: true,
-        isError: false
+        isError: false,
+        asin: ''
     }
 
-    componentDidMount = async () => {
+    componentDidMount = () => {
+        
+    }
+
+    componentDidUpdate = async (prevProps, prevState) => {
+
         try {
             let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + this.props.asin, {
                 headers: {
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTI3NzVkYjYzOTI4ZTAwMTU5YzViZGYiLCJpYXQiOjE2Mjk5NzYwMjcsImV4cCI6MTYzMTE4NTYyN30.AG3UEgfx5scipcUtcGoKTnTUAQFRUGU4wsMg7FzMfBw'
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YmQxZGE5MDIzOTAwMTVkOTY1YzgiLCJpYXQiOjE2NTA5ODI3MDAsImV4cCI6MTY1MjE5MjMwMH0.9aZzmvN4RzBfRGqquXRDzYFutHPIzC_DR3lo7SmsR_w'
                 }
             })
-            console.log(response)
+            // console.log(response)
+            
             if (response.ok) {
                 let comments = await response.json()
+                console.log(comments)
                 this.setState({ comments: comments, isLoading: false, isError: false })
             } else {
                 console.log('error')

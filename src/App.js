@@ -14,7 +14,30 @@ import { Component } from "react";
 class App extends Component {
 
   state = {
-    asin: ''
+    asin: '',
+    selected: false
+  }
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevState.asin !== this.state.asin) {
+      this.setState({
+        ...this.state,
+        selected: true 
+      })
+    }
+  }
+
+
+
+  changeSelected = (value) => {
+    this.setState({selected: value})
+  }
+
+  getAndSetAsin = (newAsin) => {
+    this.setState({
+      ...this.state,
+      asin: newAsin
+    })
   }
 
   render() {
@@ -23,17 +46,24 @@ class App extends Component {
       <div className="App">
       <Container>
         <Row>
-          <header className="App-header">
+          {/* <header className="App-header"> */}
             {/* <WarningSign text="Watch out again!" /> */}
             {/* <MyBadge text="NEW!!" color="info" /> */}
             {/* <SingleBook book={fantasyBooks[0]} /> */}
             <Col md={8}>
-            <BookList books={fantasyBooks} />
+            <BookList 
+            books={fantasyBooks} 
+            getAndSetAsin={this.getAndSetAsin}
+            />
             </Col>
           <Col md={4}>
-          <CommentArea asin={this.state.asin} />
+          <CommentArea 
+            asin={this.state.asin}
+            changeSelected={this.changeSelected}
+            currentSelectedValue={this.state.selected}
+          />
           </Col>
-          </header>
+          {/* </header> */}
         </Row>
       </Container>
     </div>

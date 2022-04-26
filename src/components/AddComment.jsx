@@ -19,7 +19,7 @@ class AddComment extends Component {
                 body: JSON.stringify(this.state.comment),
                 headers: {
                     'Content-type': 'application/json',
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI3OWY5NTgxNmI1YjAwMTU5NDA3NDAiLCJpYXQiOjE2MjI2NDY2NzcsImV4cCI6MTYyMzg1NjI3N30.y-rBwB5WAQOWBvWrLlAgTQUrbGulxd2M6cWH3VLyGLw'
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YmQxZGE5MDIzOTAwMTVkOTY1YzgiLCJpYXQiOjE2NTA5ODI3MDAsImV4cCI6MTY1MjE5MjMwMH0.9aZzmvN4RzBfRGqquXRDzYFutHPIzC_DR3lo7SmsR_w'
                 }
             })
             if (response.ok) {
